@@ -1,11 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { statement } from '@babel/template';
+
+const axios = require("axios");
 
 function App() {
   return (
-    <div className="TestApp">
-      <h1>Hello there</h1>
+    <div className="app-wrapper">
+      <h1>List Of top animes</h1>
     </div>
   );
 }
