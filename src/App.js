@@ -7,8 +7,9 @@ const axios = require("axios");
 
 function App() {
   return (
-    <div className="app-wrapper">
+    <div className="app-wrapper container">
       <h1>List Of top animes</h1>
+      <button className="btn btn-lg btn-success">hellothere</button>
     </div>
   );
 }
