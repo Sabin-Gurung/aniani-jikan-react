@@ -32,12 +32,10 @@ class App extends React.Component {
             </div>
           </div>
         </div>
-        <div className="anime-results">
-          <ul>
+        <div className="anime-results row">
             {
               this.state.animeResults.map(animeMini=><AnimeMini key={animeMini.mal_id} animeMini={animeMini}/>)
             }
-          </ul>
         </div>
       </div>
     );
