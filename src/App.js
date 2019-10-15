@@ -7,25 +7,26 @@ const AnimeMini = require("./components/AnimeMini").default;
 
 
 class App extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      animeResults: [],
-      yearsOptions:[]
-    }
-
-    let currentYear = new Date().getFullYear();
-    for (var i = 1950; i <= currentYear; ++i){
-      this.state.yearsOptions.push(i);
-    }
+  state = {
+    animeResults: [],
+    yearsOptions: [],
+    noResults: true
   }
 
-  componentDidMount(){
-    axios.get("https://api.jikan.moe/v3/top/anime")
-    .then(res=>res.data)
-    .then(res=>{
-      this.setState({animeResults : res.top});
-    });
+  onYearSeasonSearchHandler = ()=>{
+    alert("you just searched");
+  }
+
+  componentDidMount() {
+    let currentYear = new Date().getFullYear();
+    for (var i = 1950; i <= currentYear; ++i) {
+      this.state.yearsOptions.push(i);
+    }
+    // axios.get("https://api.jikan.moe/v3/top/anime")
+    //   .then(res => res.data)
+    //   .then(res => {
+    //     this.setState({ animeResults: res.top });
+    //   });
   }
 
   render() {
@@ -62,11 +63,16 @@ class App extends React.Component {
             </select>
           </div>
           <div className="col-md-3">
-            <button className="btn btn-success">Go</button>
+            <button className="btn btn-success" onClick={this.onYearSeasonSearchHandler}>Go</button>
           </div>
         </div>
         <div className="anime-results row">
           {
+            this.state.noResults ?
+            (<p>
+              NO anime results.
+            </p>)
+            :
             this.state.animeResults.map(animeMini => <AnimeMini key={animeMini.mal_id} animeMini={animeMini} />)
           }
         </div>
