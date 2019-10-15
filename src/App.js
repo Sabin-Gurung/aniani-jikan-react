@@ -40,7 +40,7 @@ class App extends React.Component {
   componentDidMount() {
     let currentYear = new Date().getFullYear();
     var years = [];
-    for (var i = 1950; i <= currentYear; ++i) {
+    for (var i = currentYear; i >= 1950; --i) {
       years.push(i);
     }
     this.setState({yearsOptions : years});
