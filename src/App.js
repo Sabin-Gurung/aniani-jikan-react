@@ -10,15 +10,31 @@ class App extends React.Component {
   state = {
     animeResults: [],
     yearsOptions: [],
-    noResults: true
+    noResults: true,
+    searchOptions : {
+      year : 1950,
+      season : "summer",
+    }
   }
 
   onYearSeasonSearchHandler = ()=>{
+    alert(`${this.state.searchOptions.year} > ${this.state.searchOptions.season}`);
+
     axios.get("https://api.jikan.moe/v3/top/anime")
       .then(res => res.data)
       .then(res => {
         this.setState({ animeResults: res.top, noResults : false });
       });
+  }
+
+  onYearChange = (event)=>{
+    let val = event.target.value;
+    this.setState({searchOptions : {year : val, season : this.state.searchOptions.season}});
+  }
+
+  onSeasonChange = (event)=>{
+    let val = event.target.value;
+    this.setState({searchOptions : {year : this.state.searchOptions.season, season : val}});
   }
 
   componentDidMount() {
@@ -46,7 +62,7 @@ class App extends React.Component {
             <div class="input-group-prepend">
               <span class="input-group-text">Year</span>
             </div>
-            <select class="form-control">
+            <select class="form-control" onChange={this.onYearChange}>
               {
                 this.state.yearsOptions.map(q => <option>{q}</option>)
               }
@@ -56,7 +72,7 @@ class App extends React.Component {
             <div class="input-group-prepend">
               <span class="input-group-text">Season</span>
             </div>
-            <select class="form-control">
+            <select class="form-control" onChange={this.onSeasonChange}>
               <option value="summer">summer</option>
               <option value="winter">winter</option>
               <option value="fall">fall</option>
