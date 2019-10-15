@@ -15,18 +15,20 @@ class App extends React.Component {
 
   onYearSeasonSearchHandler = ()=>{
     alert("you just searched");
+    axios.get("https://api.jikan.moe/v3/top/anime")
+      .then(res => res.data)
+      .then(res => {
+        this.setState({ animeResults: res.top, noResults : false });
+      });
   }
 
   componentDidMount() {
     let currentYear = new Date().getFullYear();
+    var years = [];
     for (var i = 1950; i <= currentYear; ++i) {
-      this.state.yearsOptions.push(i);
+      years.push(i);
     }
-    // axios.get("https://api.jikan.moe/v3/top/anime")
-    //   .then(res => res.data)
-    //   .then(res => {
-    //     this.setState({ animeResults: res.top });
-    //   });
+    this.setState({yearsOptions : years});
   }
 
   render() {
