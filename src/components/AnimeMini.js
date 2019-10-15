@@ -4,11 +4,11 @@ import './AnimeMini.css'
 const axios = require("axios").default;
 
 var AnimeMini = props => (
-    <div className="anime-mini col-md-2 p-2">
-        <img class="card-img-top" src={props.animeMini.image_url} alt="Card image cap"></img>
-        <div className="card-body">
-            <h5 className="class-title">{props.animeMini.title}</h5>
-            <h2>{props.animeMini.score}</h2>
+    <div className="anime-mini col-sm-4 col-md-3 col-lg-2 mt-3">
+        <img src={props.animeMini.image_url} alt="Card image cap"></img>
+        <div>
+            <p>{props.animeMini.title}</p>
+            <p>{props.animeMini.score}</p>
         </div>
     </div>
 );

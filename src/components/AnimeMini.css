@@ -4,6 +4,8 @@
 }
 
 .anime-mini img{
-    width:auto;
-    height: 200px;
+    width:100%;
+    height: 220px;
+    border-radius: 20px;
+    margin: 0px;
 }
