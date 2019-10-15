@@ -23,7 +23,7 @@ class App extends React.Component {
     return (
       <div className="app-wrapper container">
         <div className="header row">
-          <h1><strong>AniANI-Jikan</strong></h1>
+          AniANI-Jikan
         </div>
         <div className="searchSection row">
           <div className="col-md-6 offset-md-3">
