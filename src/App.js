@@ -12,7 +12,7 @@ class App extends React.Component {
     yearsOptions: [],
     noResults: true,
     searchOptions : {
-      year : 1950,
+      year : new Date().getFullYear().toString(),
       season : "summer",
     }
   }
@@ -20,10 +20,10 @@ class App extends React.Component {
   onYearSeasonSearchHandler = ()=>{
     alert(`${this.state.searchOptions.year} > ${this.state.searchOptions.season}`);
 
-    axios.get("https://api.jikan.moe/v3/top/anime")
+    axios.get(`https://api.jikan.moe/v3/season/${this.state.searchOptions.year}/${this.state.searchOptions.season}`)
       .then(res => res.data)
       .then(res => {
-        this.setState({ animeResults: res.top, noResults : false });
+        this.setState({ animeResults: res.anime, noResults : false });
       });
   }
 
