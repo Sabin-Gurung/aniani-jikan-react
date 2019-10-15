@@ -18,8 +18,6 @@ class App extends React.Component {
   }
 
   onYearSeasonSearchHandler = ()=>{
-    alert(`${this.state.searchOptions.year} > ${this.state.searchOptions.season}`);
-
     axios.get(`https://api.jikan.moe/v3/season/${this.state.searchOptions.year}/${this.state.searchOptions.season}`)
       .then(res => res.data)
       .then(res => {
@@ -34,7 +32,7 @@ class App extends React.Component {
 
   onSeasonChange = (event)=>{
     let val = event.target.value;
-    this.setState({searchOptions : {year : this.state.searchOptions.season, season : val}});
+    this.setState({searchOptions : {year : this.state.searchOptions.year, season : val}});
   }
 
   componentDidMount() {
