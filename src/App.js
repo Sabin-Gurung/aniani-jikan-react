@@ -14,7 +14,6 @@ class App extends React.Component {
   }
 
   onYearSeasonSearchHandler = ()=>{
-    alert("you just searched");
     axios.get("https://api.jikan.moe/v3/top/anime")
       .then(res => res.data)
       .then(res => {
