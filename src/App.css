@@ -1,4 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Acme&display=swap');
 
 .app-wrapper{
-    border: solid 2px red;
+    border: solid 1px red;
+}
+
+.header{
+    padding: 20px;
+    border: solid 1px red;
+    font-family: 'Acme', sans-serif;
+}
+
+.searchSection{
+    border: solid 1px red;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

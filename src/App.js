@@ -22,20 +22,18 @@ class App extends React.Component {
   render() {
     return (
       <div className="app-wrapper container">
-        <div className="header">
+        <div className="header row">
           <h1><strong>AniANI-Jikan</strong></h1>
         </div>
-        <div className="searchSection">
-          <div className="row">
-            <div className="col-md-6 offset-md-3">
-              <input type="text" className="form-control" placeholder="Enter keyword to serach Anime"/>
-            </div>
+        <div className="searchSection row">
+          <div className="col-md-6 offset-md-3">
+            <input type="text" className="form-control" placeholder="Enter keyword to serach Anime" />
           </div>
         </div>
         <div className="anime-results row">
-            {
-              this.state.animeResults.map(animeMini=><AnimeMini key={animeMini.mal_id} animeMini={animeMini}/>)
-            }
+          {
+            this.state.animeResults.map(animeMini => <AnimeMini key={animeMini.mal_id} animeMini={animeMini} />)
+          }
         </div>
       </div>
     );
