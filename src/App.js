@@ -14,7 +14,15 @@ class App extends React.Component {
     searchOptions: {
       year: new Date().getFullYear().toString(),
       season: "summer",
+    },
+    animeDetailOptions : {
+      animeId : null,
+      visible : false
     }
+  }
+
+  onClickAnimeMini = ()=>{
+    alert("handling on click mini from app");
   }
 
   onYearSeasonSearchHandler = () => {
@@ -88,7 +96,7 @@ class App extends React.Component {
                 NO anime results.
             </p>)
               :
-              this.state.animeResults.map(animeMini => <AnimeMini key={animeMini.mal_id} animeMini={animeMini} />)
+              this.state.animeResults.map(animeMini => <AnimeMini key={animeMini.mal_id} animeMini={animeMini} displayDetail={this.onClickAnimeMini} />)
           }
         </div>
     );
@@ -96,11 +104,6 @@ class App extends React.Component {
     return (
       <div className="app-wrapper container">
         {header}
-        {/* <div className="searchSection row">
-          <div className="col-md-6 offset-md-3">
-            <input type="text" className="form-control" placeholder="Enter keyword to serach Anime" />
-          </div>
-        </div> */}
         {searchSeasonSection}
         {animeReasultsSection}
       </div>
