@@ -4,6 +4,7 @@ import './App.css';
 
 const axios = require("axios").default;
 const AnimeMini = require("./components/AnimeMini").default;
+const AnimeDetail = require("./components/AnimeDetail").default;
 
 
 class App extends React.Component {
@@ -23,8 +24,12 @@ class App extends React.Component {
 
   onClickAnimeMini = (id)=>{
     return  (()=>{
-      alert(`handling for "${id}"`);
+      this.setState({animeDetailOptions : {animeId : id, visible : true}});
     });
+  }
+
+  onCloseAnimeDetail = ()=>{
+    this.setState({animeDetailOptions : {animeId : null, visible : false}});
   }
 
   onYearSeasonSearchHandler = () => {
@@ -104,9 +109,9 @@ class App extends React.Component {
     );
 
     let animeDetailSection = (
-      <>
-      <div close="button"></div>
-      </>
+      <div className="anime-detail-section row">
+      <AnimeDetail animeId={this.state.animeDetailOptions.animeId} closeBtnHandler={this.onCloseAnimeDetail}></AnimeDetail>
+      </div>
     );
 
     return (
