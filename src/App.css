@@ -3,6 +3,16 @@
 .app-wrapper{
 }
 
+.input-group, .go-btn{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.alert{
+    padding: 20px;
+    text-align: center;
+}
+
 .header{
     padding-left: 10px;
     padding-right: 10px;

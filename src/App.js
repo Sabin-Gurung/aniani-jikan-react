@@ -89,7 +89,7 @@ class App extends React.Component {
             <option value="spring">spring</option>
           </select>
         </div>
-        <div className="col-md-3">
+        <div className="go-btn col-md-3">
           <button className="btn btn-success" onClick={this.onYearSeasonSearchHandler}>Go</button>
         </div>
       </div>
@@ -99,9 +99,9 @@ class App extends React.Component {
         <div className="anime-results row">
           {
             this.state.noResults ?
-              (<p>
+              (<div className="col-md-12 alert alert-danger">
                 NO anime results.
-            </p>)
+            </div>)
               :
               this.state.animeResults.map(animeMini => <AnimeMini key={animeMini.mal_id} animeMini={animeMini} displayDetail={this.onClickAnimeMini(animeMini.mal_id)} />)
           }
