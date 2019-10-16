@@ -117,7 +117,11 @@ class App extends React.Component {
     return (
       <div className="app-wrapper container">
         {header}
-        {searchSeasonSection}
+        {
+          this.state.animeDetailOptions.visible ?
+          null : 
+          searchSeasonSection
+        }
         {
           this.state.animeDetailOptions.visible ?
           animeDetailSection : 
