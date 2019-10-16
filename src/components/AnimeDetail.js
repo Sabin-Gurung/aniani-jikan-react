@@ -15,9 +15,6 @@ class AnimeDetail extends React.Component {
 
     render() {
         let anime = this.state.anime;
-        let trailerTag = this.state.trailer_url ? 
-        (<a href={this.state.trailer_url}>{this.state.trailer_url}</a>):
-        (<>n/a</>);
 
         return (
             <>
@@ -40,6 +37,10 @@ class AnimeDetail extends React.Component {
                             <div className="col-md-12">
                                 <table className="table">
                                     <tbody>
+                                            <tr>
+                                                <th>MAL ID</th>
+                                                <td>{anime.mal_id}</td>
+                                            </tr>
                                             <tr>
                                                 <th>Type</th>
                                                 <td>{anime.type}</td>
@@ -78,7 +79,12 @@ class AnimeDetail extends React.Component {
                                             </tr>
                                             <tr>
                                                 <th>Trailer</th>
-                                                <td>{trailerTag}</td>
+                                                <td>{
+                                                    anime.trailer_url ?
+                                                    (<iframe src={anime.trailer_url}/>)
+                                                    :
+                                                    ("n/a")
+                                                }</td>
                                             </tr>
                                         </tbody>
                                     </table>
