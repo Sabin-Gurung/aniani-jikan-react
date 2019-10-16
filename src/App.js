@@ -21,8 +21,10 @@ class App extends React.Component {
     }
   }
 
-  onClickAnimeMini = ()=>{
-    alert("handling on click mini from app");
+  onClickAnimeMini = (id)=>{
+    return  (()=>{
+      alert(`handling for "${id}"`);
+    });
   }
 
   onYearSeasonSearchHandler = () => {
@@ -96,16 +98,26 @@ class App extends React.Component {
                 NO anime results.
             </p>)
               :
-              this.state.animeResults.map(animeMini => <AnimeMini key={animeMini.mal_id} animeMini={animeMini} displayDetail={this.onClickAnimeMini} />)
+              this.state.animeResults.map(animeMini => <AnimeMini key={animeMini.mal_id} animeMini={animeMini} displayDetail={this.onClickAnimeMini(animeMini.mal_id)} />)
           }
         </div>
+    );
+
+    let animeDetailSection = (
+      <>
+      <div close="button"></div>
+      </>
     );
 
     return (
       <div className="app-wrapper container">
         {header}
         {searchSeasonSection}
-        {animeReasultsSection}
+        {
+          this.state.animeDetailOptions.visible ?
+          animeDetailSection : 
+          animeReasultsSection
+        }
       </div>
     );
   }
