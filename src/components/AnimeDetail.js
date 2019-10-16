@@ -27,7 +27,7 @@ class AnimeDetail extends React.Component {
                                     <img src={anime.image_url}></img>
                                 </div>
                                 <div className="col-md-8">
-                                    <button className="btn btn-sm btn-success" onClick={this.props.closeBtnHandler}>Close</button>
+                                    <button className="btn btn-success" onClick={this.props.closeBtnHandler}>Back</button>
                                     <h3>{anime.title}</h3>
                                     <p>
                                         {anime.synopsis}

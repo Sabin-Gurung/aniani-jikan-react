@@ -90,7 +90,7 @@ class App extends React.Component {
           </select>
         </div>
         <div className="go-btn col-md-3">
-          <button className="btn btn-success" onClick={this.onYearSeasonSearchHandler}>Go</button>
+          <button className="btn btn-success" onClick={this.onYearSeasonSearchHandler}>Search</button>
         </div>
       </div>
     );
